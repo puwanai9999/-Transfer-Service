@@ -33,22 +33,22 @@
     </header>
 
     <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 py-8 space-y-10">
+    <main class="max-w-[98%] mx-auto px-2 py-8 space-y-12">
 
         <!-- Pricing Table Section -->
-        <section id="pricing-section" class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
-            <div class="p-6 sm:p-8 bg-slate-50 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <section id="pricing-section" class="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-slate-200">
+            <div class="p-6 sm:p-10 bg-gradient-to-r from-slate-900 via-emerald-950 to-slate-900 text-white flex flex-col md:flex-row justify-between items-center gap-6">
                 <div>
-                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-800">ตารางอัตราค่าบริการ</h2>
-                    <p class="text-lg sm:text-xl text-slate-600">เปรียบเทียบราคาระหว่างสนามบินสุวรรณภูมิและดอนเมือง</p>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">ตารางอัตราค่าบริการ</h2>
+                    <p class="text-xl sm:text-2xl text-emerald-300 mt-2 font-medium">เปรียบเทียบราคาระหว่างสนามบินสุวรรณภูมิและดอนเมือง</p>
                 </div>
                 <!-- Search Filter -->
-                <div class="w-full sm:w-auto">
+                <div class="w-full md:w-auto">
                     <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                        <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-magnifying-glass text-xl"></i>
                         </span>
-                        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="ค้นหาพื้นที่ (เช่น พัทยา, บางแสน)..." class="w-full sm:w-80 pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="ค้นหาพื้นที่ (เช่น พัทยา, บางแสน)..." class="w-full md:w-96 pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-2xl text-xl text-white placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-emerald-500 backdrop-blur-sm">
                     </div>
                 </div>
             </div>
@@ -56,113 +56,232 @@
             <div class="overflow-x-auto">
                 <table id="priceTable" class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="bg-slate-100 text-slate-800 text-base sm:text-xl uppercase tracking-wider border-b border-slate-200">
-                            <th class="p-6 sm:p-8 font-bold">พื้นที่</th>
-                            <th class="p-6 sm:p-8 font-bold bg-emerald-50/70 text-emerald-950 text-center" colspan="2">
-                                <i class="fa-solid fa-plane-departure mr-2 text-xl"></i> สุวรรณภูมิ ↔ พื้นที่
+                        <tr class="bg-slate-200 text-slate-900 text-xl sm:text-2xl uppercase tracking-wider border-b-2 border-slate-300">
+                            <th class="p-8 font-black w-1/3">พื้นที่</th>
+                            <th class="p-8 font-black bg-emerald-100 text-emerald-950 text-center w-1/3 border-x border-slate-300">
+                                <i class="fa-solid fa-plane-departure mr-3 text-2xl"></i> สุวรรณภูมิ ↔ พื้นที่
                             </th>
-                            <th class="p-6 sm:p-8 font-bold bg-orange-50/70 text-orange-950 text-center" colspan="2">
-                                <i class="fa-solid fa-plane-departure mr-2 text-xl"></i> ดอนเมือง ↔ พื้นที่
+                            <th class="p-8 font-black bg-orange-100 text-orange-950 text-center w-1/3">
+                                <i class="fa-solid fa-plane-departure mr-3 text-2xl"></i> ดอนเมือง ↔ พื้นที่
                             </th>
-                        </tr>
-                        <tr class="bg-slate-50 text-slate-700 text-base sm:text-lg border-b border-slate-200">
-                            <th class="p-5 sm:p-6"></th>
-                            <th class="p-5 sm:p-6 bg-emerald-50/30 text-center font-bold">ราคาปกติ (24 ชม.)</th>
-                            <th class="p-5 sm:p-6 bg-emerald-50/70 text-center text-emerald-900 font-extrabold text-lg sm:text-xl">☀️ 09:00 - 15:00 น. <span class="block text-sm text-emerald-700 font-medium">(ถูกกว่า 200 บาท)</span></th>
-                            <th class="p-5 sm:p-6 bg-orange-50/30 text-center font-bold">ราคาปกติ (24 ชม.)</th>
-                            <th class="p-5 sm:p-6 bg-orange-50/70 text-center text-orange-900 font-extrabold text-lg sm:text-xl">☀️ 09:00 - 15:00 น. <span class="block text-sm text-orange-700 font-medium">(ถูกกว่า 200 บาท)</span></th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100 text-lg sm:text-xl">
+                    <tbody class="divide-y divide-slate-200 text-xl sm:text-2xl font-medium">
                         <!-- Row 1 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> เมืองชลบุรี
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> เมืองชลบุรี
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">900 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">700 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,100 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">900 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">900</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">700</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,100</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">900</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                         <!-- Row 2 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> บางแสน
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> บางแสน
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,100 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">900 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,300 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,100 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,100</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">900</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,300</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,100</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                         <!-- Row 3 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> ศรีราชา
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> ศรีราชา
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,200 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,000 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,400 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,200 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,200</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,000</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,400</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,200</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                         <!-- Row 4 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> แหลมฉบัง
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> แหลมฉบัง
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,300 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,100 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,500 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,300 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,300</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,100</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,500</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,300</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                         <!-- Row 5 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> พัทยา
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> พัทยา
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,400 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,200 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,600 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,400 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,400</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,200</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,600</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,400</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                         <!-- Row 6 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> บางละมุง
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> บางละมุง
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,400 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,200 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,600 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,400 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,400</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,200</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,600</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,400</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                         <!-- Row 7 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> นาจอมเทียน
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> นาจอมเทียน
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,700 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,500 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,900 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,700 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,700</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,500</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,900</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,700</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                         <!-- Row 8 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> สัตหีบ
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> สัตหีบ
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,800 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,600 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">2,000 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,800 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">1,800</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,600</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">2,000</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,800</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                         <!-- Row 9 -->
-                        <tr class="hover:bg-slate-50/80 transition">
-                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
-                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> ท่าเรือบ้านเพ
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="p-8 font-bold text-slate-900 flex items-center gap-4">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-3xl"></i> ท่าเรือบ้านเพ
                             </td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">2,000 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,800 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">2,200 บาท</td>
-                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">2,000 บาท</td>
+                            <td class="p-8 text-center bg-emerald-50/40 border-x border-slate-200">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">2,000</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">1,800</span> บาท
+                                    </div>
+                                    <span class="text-sm text-emerald-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
+                            <td class="p-8 text-center bg-orange-50/40">
+                                <div class="flex flex-col items-center justify-center">
+                                    <span class="text-2xl text-slate-700 font-bold">ปกติ: <strong class="text-3xl text-slate-900">2,200</strong> บาท</span>
+                                    <div class="mt-2 inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-1.5 rounded-xl text-lg font-bold shadow-sm">
+                                        <i class="fa-solid fa-sun"></i> 09:00-15:00 น. : <span class="text-2xl underline decoration-amber-300">2,000</span> บาท
+                                    </div>
+                                    <span class="text-sm text-orange-700 font-bold mt-1">(ประหยัดกว่า 200 บาท)</span>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -171,68 +290,68 @@
 
         <!-- Service Highlights Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
-                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+            <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-200 text-center flex flex-col items-center transform hover:-translate-y-1 transition">
+                <div class="w-20 h-20 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-4xl mb-4 shadow-sm">
                     <i class="fa-solid fa-suitcase-rolling"></i>
                 </div>
-                <h4 class="font-bold text-slate-900 text-lg mb-1">กระเป๋าเดินทาง</h4>
-                <p class="text-base text-slate-600">28 นิ้ว ได้สูงสุด 3 ใบ</p>
+                <h4 class="font-bold text-slate-900 text-xl mb-2">กระเป๋าเดินทาง</h4>
+                <p class="text-lg text-slate-600">28 นิ้ว ได้สูงสุด 3 ใบ</p>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
-                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+            <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-200 text-center flex flex-col items-center transform hover:-translate-y-1 transition">
+                <div class="w-20 h-20 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-4xl mb-4 shadow-sm">
                     <i class="fa-solid fa-users"></i>
                 </div>
-                <h4 class="font-bold text-slate-900 text-lg mb-1">จำนวนผู้โดยสาร</h4>
-                <p class="text-base text-slate-600">รับลูกค้าได้ถึง 4 คน พร้อมเดินทาง</p>
+                <h4 class="font-bold text-slate-900 text-xl mb-2">จำนวนผู้โดยสาร</h4>
+                <p class="text-lg text-slate-600">รับลูกค้าได้ถึง 4 คน พร้อมเดินทาง</p>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
-                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+            <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-200 text-center flex flex-col items-center transform hover:-translate-y-1 transition">
+                <div class="w-20 h-20 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-4xl mb-4 shadow-sm">
                     <i class="fa-solid fa-car"></i>
                 </div>
-                <h4 class="font-bold text-slate-900 text-lg mb-1">รถไฟฟ้า BYD ATTO 3</h4>
-                <p class="text-base text-slate-600">สะอาด ปลอดภัย เงียบ นั่งสบาย</p>
+                <h4 class="font-bold text-slate-900 text-xl mb-2">รถไฟฟ้า BYD ATTO 3</h4>
+                <p class="text-lg text-slate-600">สะอาด ปลอดภัย เงียบ นั่งสบาย</p>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
-                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+            <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-200 text-center flex flex-col items-center transform hover:-translate-y-1 transition">
+                <div class="w-20 h-20 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-4xl mb-4 shadow-sm">
                     <i class="fa-solid fa-user-shield"></i>
                 </div>
-                <h4 class="font-bold text-slate-900 text-lg mb-1">คนขับมืออาชีพ</h4>
-                <p class="text-base text-slate-600">สุภาพ ตรงเวลา ขับขี่ปลอดภัย</p>
+                <h4 class="font-bold text-slate-900 text-xl mb-2">คนขับมืออาชีพ</h4>
+                <p class="text-lg text-slate-600">สุภาพ ตรงเวลา ขับขี่ปลอดภัย</p>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center sm:col-span-2 lg:col-span-1">
-                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+            <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-200 text-center flex flex-col items-center sm:col-span-2 lg:col-span-1 transform hover:-translate-y-1 transition">
+                <div class="w-20 h-20 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-4xl mb-4 shadow-sm">
                     <i class="fa-solid fa-headset"></i>
                 </div>
-                <h4 class="font-bold text-slate-900 text-lg mb-1">บริการ 24 ชั่วโมง</h4>
-                <p class="text-base text-slate-600">จองล่วงหน้าได้ทุกเวลา พร้อมให้บริการ</p>
+                <h4 class="font-bold text-slate-900 text-xl mb-2">บริการ 24 ชั่วโมง</h4>
+                <p class="text-lg text-slate-600">จองล่วงหน้าได้ทุกเวลา พร้อมให้บริการ</p>
             </div>
         </div>
 
         <!-- Terms & Conditions Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-emerald-50 border border-emerald-200/60 p-8 rounded-3xl flex items-start gap-5">
-                <div class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-8">
+            <div class="bg-emerald-100/90 border border-emerald-300 p-8 rounded-3xl flex items-start gap-6 shadow-sm">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-2xl shadow">
                     <i class="fa-solid fa-check"></i>
                 </div>
                 <div>
-                    <h4 class="font-bold text-emerald-950 text-xl mb-1">ราคารวมค่าทางด่วนแล้ว</h4>
-                    <p class="text-base text-emerald-800">ไม่มีค่าใช้จ่ายเพิ่มเติมระหว่างทาง</p>
+                    <h4 class="font-bold text-emerald-950 text-2xl mb-1">ราคารวมค่าทางด่วนแล้ว</h4>
+                    <p class="text-xl text-emerald-900">ไม่มีค่าใช้จ่ายเพิ่มเติมระหว่างทาง</p>
                 </div>
             </div>
-            <div class="bg-amber-50 border border-amber-200/60 p-8 rounded-3xl flex items-start gap-5">
-                <div class="w-12 h-12 rounded-full bg-amber-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-xl">
+            <div class="bg-amber-100/90 border border-amber-300 p-8 rounded-3xl flex items-start gap-6 shadow-sm">
+                <div class="w-14 h-14 rounded-2xl bg-amber-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-2xl shadow">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                 </div>
                 <div>
-                    <h4 class="font-bold text-amber-950 text-xl mb-1">หมายเหตุสำคัญ</h4>
-                    <p class="text-base text-amber-800">ราคานี้สำหรับจุดรับ-ส่งสนามบินในพื้นที่ตามตารางเท่านั้น</p>
+                    <h4 class="font-bold text-amber-950 text-2xl mb-1">หมายเหตุสำคัญ</h4>
+                    <p class="text-xl text-amber-900">ราคานี้สำหรับจุดรับ-ส่งสนามบินในพื้นที่ตามตารางเท่านั้น</p>
                 </div>
             </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-10 mt-12 text-center text-lg">
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-12 text-center text-xl border-t border-slate-800">
         <p>© 2026 บริการรับ-ส่งสนามบินชลบุรีด้วยรถยนต์ไฟฟ้า BYD ATTO 3. สงวนลิขสิทธิ์ทั้งหมด.</p>
     </footer>
 
@@ -244,18 +363,4 @@
             const table = document.getElementById("priceTable");
             const tr = table.getElementsByTagName("tr");
 
-            for (let i = 2; i < tr.length; i++) {
-                const td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    const txtValue = td.textContent || td.innerText;
-                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
-</body>
-</html>
+            for (let i = 1; i < tr.length; i++) {
