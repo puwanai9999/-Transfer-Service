@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อัตราค่าบริการรับ-ส่งสนามบินชลบุรี</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Prompt', sans-serif; }
+        .airport-hero {
+            background: linear-gradient(135deg, rgba(6, 78, 59, 0.85), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 min-h-screen text-slate-800">
+
+    <!-- Header Section -->
+    <header class="airport-hero text-white shadow-xl relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 py-12 sm:py-16 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-emerald-600/60 backdrop-blur-md px-4 py-1.5 rounded-full text-lg font-medium mb-4 border border-emerald-400/30 shadow-sm">
+                <i class="fa-solid fa-car text-emerald-200"></i> รถยนต์ไฟฟ้า BYD ATTO 3
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">อัตราค่าบริการรับ-ส่งสนามบิน</h1>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-10">
+
+        <!-- Pricing Table Section -->
+        <section id="pricing-section" class="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100">
+            <div class="p-6 sm:p-8 bg-slate-50 border-b border-slate-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-800">ตารางอัตราค่าบริการ</h2>
+                    <p class="text-lg sm:text-xl text-slate-600">เปรียบเทียบราคาระหว่างสนามบินสุวรรณภูมิและดอนเมือง</p>
+                </div>
+                <!-- Search Filter -->
+                <div class="w-full sm:w-auto">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                        </span>
+                        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="ค้นหาพื้นที่ (เช่น พัทยา, บางแสน)..." class="w-full sm:w-80 pl-11 pr-4 py-3 bg-white border border-slate-200 rounded-xl text-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    </div>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table id="priceTable" class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-800 text-base sm:text-xl uppercase tracking-wider border-b border-slate-200">
+                            <th class="p-6 sm:p-8 font-bold">พื้นที่</th>
+                            <th class="p-6 sm:p-8 font-bold bg-emerald-50/70 text-emerald-950 text-center" colspan="2">
+                                <i class="fa-solid fa-plane-departure mr-2 text-xl"></i> สุวรรณภูมิ ↔ พื้นที่
+                            </th>
+                            <th class="p-6 sm:p-8 font-bold bg-orange-50/70 text-orange-950 text-center" colspan="2">
+                                <i class="fa-solid fa-plane-departure mr-2 text-xl"></i> ดอนเมือง ↔ พื้นที่
+                            </th>
+                        </tr>
+                        <tr class="bg-slate-50 text-slate-700 text-base sm:text-lg border-b border-slate-200">
+                            <th class="p-5 sm:p-6"></th>
+                            <th class="p-5 sm:p-6 bg-emerald-50/30 text-center font-bold">ราคาปกติ (24 ชม.)</th>
+                            <th class="p-5 sm:p-6 bg-emerald-50/70 text-center text-emerald-900 font-extrabold text-lg sm:text-xl">☀️ 09:00 - 15:00 น. <span class="block text-sm text-emerald-700 font-medium">(ถูกกว่า 200 บาท)</span></th>
+                            <th class="p-5 sm:p-6 bg-orange-50/30 text-center font-bold">ราคาปกติ (24 ชม.)</th>
+                            <th class="p-5 sm:p-6 bg-orange-50/70 text-center text-orange-900 font-extrabold text-lg sm:text-xl">☀️ 09:00 - 15:00 น. <span class="block text-sm text-orange-700 font-medium">(ถูกกว่า 200 บาท)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-lg sm:text-xl">
+                        <!-- Row 1 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> เมืองชลบุรี
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">900 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">700 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,100 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">900 บาท</td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> บางแสน
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,100 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">900 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,300 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,100 บาท</td>
+                        </tr>
+                        <!-- Row 3 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> ศรีราชา
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,200 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,000 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,400 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,200 บาท</td>
+                        </tr>
+                        <!-- Row 4 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> แหลมฉบัง
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,300 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,100 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,500 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,300 บาท</td>
+                        </tr>
+                        <!-- Row 5 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> พัทยา
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,400 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,200 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,600 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,400 บาท</td>
+                        </tr>
+                        <!-- Row 6 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> บางละมุง
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,400 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,200 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,600 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,400 บาท</td>
+                        </tr>
+                        <!-- Row 7 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> นาจอมเทียน
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,700 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,500 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">1,900 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,700 บาท</td>
+                        </tr>
+                        <!-- Row 8 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> สัตหีบ
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">1,800 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,600 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">2,000 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">1,800 บาท</td>
+                        </tr>
+                        <!-- Row 9 -->
+                        <tr class="hover:bg-slate-50/80 transition">
+                            <td class="p-6 sm:p-8 font-bold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-emerald-600 text-2xl"></i> ท่าเรือบ้านเพ
+                            </td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/10 font-bold text-slate-800 text-xl">2,000 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-emerald-50/30 text-emerald-800 font-extrabold text-2xl">1,800 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/10 font-bold text-slate-800 text-xl">2,200 บาท</td>
+                            <td class="p-6 sm:p-8 text-center bg-orange-50/30 text-orange-800 font-extrabold text-2xl">2,000 บาท</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Service Highlights Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+                    <i class="fa-solid fa-suitcase-rolling"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-lg mb-1">กระเป๋าเดินทาง</h4>
+                <p class="text-base text-slate-600">28 นิ้ว ได้สูงสุด 3 ใบ</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-lg mb-1">จำนวนผู้โดยสาร</h4>
+                <p class="text-base text-slate-600">รับลูกค้าได้ถึง 4 คน พร้อมเดินทาง</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-lg mb-1">รถไฟฟ้า BYD ATTO 3</h4>
+                <p class="text-base text-slate-600">สะอาด ปลอดภัย เงียบ นั่งสบาย</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-lg mb-1">คนขับมืออาชีพ</h4>
+                <p class="text-base text-slate-600">สุภาพ ตรงเวลา ขับขี่ปลอดภัย</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 text-center flex flex-col items-center sm:col-span-2 lg:col-span-1">
+                <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-3xl mb-4">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h4 class="font-bold text-slate-900 text-lg mb-1">บริการ 24 ชั่วโมง</h4>
+                <p class="text-base text-slate-600">จองล่วงหน้าได้ทุกเวลา พร้อมให้บริการ</p>
+            </div>
+        </div>
+
+        <!-- Terms & Conditions Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-emerald-50 border border-emerald-200/60 p-8 rounded-3xl flex items-start gap-5">
+                <div class="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-xl">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-emerald-950 text-xl mb-1">ราคารวมค่าทางด่วนแล้ว</h4>
+                    <p class="text-base text-emerald-800">ไม่มีค่าใช้จ่ายเพิ่มเติมระหว่างทาง</p>
+                </div>
+            </div>
+            <div class="bg-amber-50 border border-amber-200/60 p-8 rounded-3xl flex items-start gap-5">
+                <div class="w-12 h-12 rounded-full bg-amber-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-xl">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-amber-950 text-xl mb-1">หมายเหตุสำคัญ</h4>
+                    <p class="text-base text-amber-800">ราคานี้สำหรับจุดรับ-ส่งสนามบินในพื้นที่ตามตารางเท่านั้น</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 mt-12 text-center text-lg">
+        <p>© 2026 บริการรับ-ส่งสนามบินชลบุรีด้วยรถยนต์ไฟฟ้า BYD ATTO 3. สงวนลิขสิทธิ์ทั้งหมด.</p>
+    </footer>
+
+    <script>
+        // Search table filter function
+        function filterTable() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById("priceTable");
+            const tr = table.getElementsByTagName("tr");
+
+            for (let i = 2; i < tr.length; i++) {
+                const td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    const txtValue = td.textContent || td.innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
